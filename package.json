@@ -1,0 +1,131 @@
+{
+	"name": "svn-commit",
+	"displayName": "SVN commit message",
+	"description": "Automatically generate svn commit message",
+	"version": "0.0.1",
+	"license": "MIT",
+	"repository": {
+    "type": "git",
+    "url": "git+https://github.com/fengdonglp/svn-commit.git"
+	},
+	"bugs": {
+    "url": "https://github.com/fengdonglp/svn-commit/issues"
+  },
+  "homepage": "https://github.com/fengdonglp/svn-commit#readme",
+	"engines": {
+		"vscode": "^1.52.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:svn-commit.showCommitMessageTemplate"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "svn-commit.showCommitMessageTemplate",
+				"title": "Svn Commit Message: show commit message template",
+				"icon": {
+					"light": "assets/icon/icon-light.svg",
+					"dark": "assets/icon/icon.svg"
+				}
+			}
+		],
+		"menus": {
+			"scm/title": [
+				{
+					"command": "svn-commit.showCommitMessageTemplate",
+					"group": "navigation",
+					"when": "config.svn.enabled && scmProvider == svn"
+				}
+			]
+		},
+		"configuration": {
+			"title": "Svn Commit Message",
+			"properties": {
+				"svn-commit.commit.autoCommitAfterInput": {
+					"type": "boolean",
+					"default": false,
+					"description": "Controls whether the input is automatically committed after completion"
+				},
+				"svn-commit.commit.minSubjectSize": {
+					"type": "number",
+					"default": 3,
+					"description": "Controls the minimum input characters of the subject"
+				},
+				"svn-commit.commit.showScopeInputBox": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show scope input box after select commit type"
+				},
+				"svn-commit.commit.showBodyInputBox": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show body input box after edit commit scope"
+				},
+				"svn-commit.commit.showFooterInputBox": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show footer input box after edit commit body"
+				},
+				"svn-commit.commit.types": {
+					"type": "array",
+					"default": [
+						{
+							"label": "feat",
+							"detail": "新的功能特性"
+						},
+						{
+							"label": "fix",
+							"detail": "bug 修复"
+						},
+						{
+							"label": "docs",
+							"detail": "文档内容修改，新增"
+						},
+						{
+							"label": "style",
+							"detail": "代码格式，风格的改动"
+						},
+						{
+							"label": "refactor",
+							"detail": "代码重构"
+						},
+						{
+							"label": "test",
+							"detail": "测试相关"
+						},
+						{
+							"label": "chore",
+							"detail": "其他相关改动"
+						}
+					],
+					"description": "Custom configuration for commit types，，e.g. { \"label\": \"commit type\", \"detail\": \"commit type description\" }"
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.52.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.4",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.15.0",
+		"@typescript-eslint/eslint-plugin": "^4.9.0",
+		"@typescript-eslint/parser": "^4.9.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.1.2",
+		"vscode-test": "^1.4.1"
+	}
+}
