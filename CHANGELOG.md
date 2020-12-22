@@ -4,6 +4,10 @@ All notable changes to the "svn-commit" extension will be documented in this fil
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [0.1.0] - 2020-12-22
 
-- Initial release
+Initial release
+
+- 自定义配置提交类型
+- 支持同一个工作区多个 SVN 版本库
+- 输入完成后自动提交

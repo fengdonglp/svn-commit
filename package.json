@@ -2,8 +2,9 @@
 	"name": "svn-commit",
 	"displayName": "SVN commit message",
 	"description": "Automatically generate svn commit message",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"license": "MIT",
+	"publisher": "fengd",
 	"repository": {
     "type": "git",
     "url": "git+https://github.com/fengdonglp/svn-commit.git"
