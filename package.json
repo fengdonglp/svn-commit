@@ -7,7 +7,7 @@
 	"publisher": "fengd",
 	"repository": {
     "type": "git",
-    "url": "git+https://github.com/fengdonglp/svn-commit.git"
+    "url": "https://github.com/fengdonglp/svn-commit.git"
 	},
 	"bugs": {
     "url": "https://github.com/fengdonglp/svn-commit/issues"
