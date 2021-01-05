@@ -24,7 +24,7 @@
 
 ## Extension Settings
 
-```json
+```js
 {
     // 是否在输入完成后自动提交
     "svn-commit.commit.autoCommitAfterInput": true,
