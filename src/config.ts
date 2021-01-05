@@ -19,11 +19,22 @@ export interface Config {
   showFooterInputBox: boolean
 }
 
+export const DEFAULT_CONFIG: Config = {
+	types: [],
+	autoCommitAfterInput: false,
+  minSubjectSize: 3,
+  showScopeInputBox: true,
+  showBodyInputBox: true,
+  showFooterInputBox: true
+};
+
+export let pluginConfig: Config = DEFAULT_CONFIG;
+
 export function getConfig(): Config {
   const config = workspace.getConfiguration(CONFIG_GROUP_NAME);
   const COMMIT_TYPES: CommitTypes = config.get(CONFIG_TYPES_NAME) || [];
-  
-  return {
+
+  pluginConfig = {
     types: COMMIT_TYPES,
     autoCommitAfterInput: !!config.get('autoCommitAfterInput'),
     minSubjectSize: config.get('minSubjectSize') || 3,
@@ -31,4 +42,6 @@ export function getConfig(): Config {
     showBodyInputBox: !!config.get('showBodyInputBox'),
     showFooterInputBox: !!config.get('showFooterInputBox')
   };
+
+  return pluginConfig;
 }
